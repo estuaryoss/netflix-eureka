@@ -9,7 +9,7 @@ RUN cd $CATALINA_HOME/webapps &&\
   rm eureka-server-1.9.13.war
 
 ADD config.properties $CATALINA_HOME/webapps/eureka/WEB-INF/classes/config.properties
-#ADD eureka-client.properties $CATALINA_HOME/webapps/eureka/WEB-INF/classes/eureka-client.properties
+ADD eureka-client.properties $CATALINA_HOME/webapps/eureka/WEB-INF/classes/eureka-client.properties
 ADD eureka-server.properties $CATALINA_HOME/webapps/eureka/WEB-INF/classes/eureka-server.properties
 
 EXPOSE 8080
