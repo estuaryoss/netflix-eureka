@@ -7,6 +7,9 @@ NetflixOSS Eureka server registry with updated tomcat and eureka version
 ## Docker run
 docker run -d -p 8080:8080 dinutac/netflixoss-eureka:1.9.13  
 
+## Browser access
+http://localhost:8080/eureka  
+
 ## About versions
 Tomcat: 9.0.26  OpenJDK  (Release date: 19.09.2019)  
 Eureka: 1.9.13  (Release date: 04.09.2019)  
