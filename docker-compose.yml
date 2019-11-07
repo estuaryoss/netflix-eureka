@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  eureka-server1:
+    image: dinutac/netflixoss-eureka:latest
+    environment:
+      JAVA_OPTS: "-Deureka.serviceUrl.default=http://eureka-server2:8080/eureka/v2/"
+    hostname: eureka-server1
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+
+  # one eureka server points to the other one
+
+  eureka-server2:
+    image: dinutac/netflixoss-eureka:latest
+    hostname: eureka-server2
+    environment:
+      JAVA_OPTS: "-Deureka.serviceUrl.default=http://eureka-server1:8080/eureka/v2/"
+    ports:
+      - "8081:8080"
+    expose:
+      - "8080"
+
+  estuary-discovery:
+    image: dinutac/estuary-discovery:latest
+    hostname: estuary-discovery
+    command: python3 /home/dev/scripts/main_flask.py
+    environment:
+      EUREKA_SERVER: "http://eureka-server1:8080/eureka/v2,http://eureka-server2:8080/eureka/v2" #here we put 2 eureka instances. the client will load-balance
+      APP_IP_PORT: estuary-discovery:8080
+    expose:
+      - "8080"

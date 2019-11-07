@@ -1,0 +1,17 @@
+dist: bionic
+
+language: python
+
+python:
+  - "3.7"
+
+services:
+  - docker
+
+env:
+  NGROK_TOKEN: 1RER6BUC3QNNwYWY5LcIBjrv3A8_24QccmopTEQJGMErG9uzw
+
+script:
+  - docker build . -t dinutac/netflixoss-eureka:latest
+  - python3 -m unittest discover tests "*_test.py"
+
