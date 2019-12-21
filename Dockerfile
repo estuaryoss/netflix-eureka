@@ -1,7 +1,7 @@
 FROM tomcat:9.0.26-jdk8-openjdk
 MAINTAINER Catalin Dinuta <constantin.dinuta@gmail.com>
 
-ENV EUREKA_VERSION 1.9.14
+ENV EUREKA_VERSION 1.9.15
 
 RUN cd $CATALINA_HOME/webapps &&\
   mkdir eureka &&\
