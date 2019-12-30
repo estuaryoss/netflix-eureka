@@ -12,7 +12,7 @@ class DockerUtils():
         file_path = Path(file)
         if not file_path.is_file():
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), file_path)
-        return CmdUtils.run_cmd(["docker-compose", "pull", "&&", "docker-compose", "-f", f"{file}", "up", "-d"])
+        return CmdUtils.run_cmd(["docker-compose", "pull", "&&", "docker-compose", "-f", file, "up", "-d"])
 
     @staticmethod
     def down(file):
@@ -62,11 +62,11 @@ class DockerUtils():
         if not file_path.is_file():
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), file_path)
         return CmdUtils.run_cmd(
-            ["docker-compose", "-f", f"{file}", "logs", "-t", f"--tail=100"])
+            ["docker-compose", "-f", file, "logs", "-t", f"--tail=100"])
 
     @staticmethod
     def ps(id):
-        return CmdUtils.run_cmd(["docker", "ps", "--filter", f"name={id}"])
+        return CmdUtils.run_cmd(["docker", "ps", "--filter", "name={}".format(id)])
 
     @staticmethod
     def exec(container_id, command):
@@ -95,22 +95,10 @@ class DockerUtils():
         return CmdUtils.run_cmd(container_exec_cmd)
 
     @staticmethod
-    def cp(compose_id, service_name, file_or_folder):
-        container_id = f"{compose_id}_{service_name}_1"
-        command = rf''' {container_id}:{file_or_folder} /tmp/{compose_id}'''
-        container_exec_cmd = r'''docker cp ''' + command
-        return CmdUtils.run_cmd_shell_true(container_exec_cmd)
-
-    @staticmethod
     def exec_detached(container_id, command):
         container_exec_cmd = ["docker", "exec", "-d", f"{container_id}"]
         container_exec_cmd.extend(command)
         return CmdUtils.run_cmd(container_exec_cmd)
-
-    @staticmethod
-    def stats(command):
-        container_exec_cmd = r'''docker stats --no-stream ''' + command
-        return CmdUtils.run_cmd_shell_true(container_exec_cmd)
 
     @staticmethod
     def clean_up():

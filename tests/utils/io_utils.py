@@ -15,7 +15,7 @@ class IOUtils:
     def get_list_dir(path):
         file_path = Path(path)
         if file_path.exists():
-            dir_list = [directory for directory in os.listdir(path) if os.path.isdir(f"{path}{directory}")]
+            dir_list = [directory for directory in os.listdir(path) if os.path.isdir("{}{}".format(path, directory))]
             return dir_list
         return []
 
@@ -42,7 +42,7 @@ class IOUtils:
         file_path = Path(path)
         if not file_path.exists():
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), file_path)
-        shutil.make_archive(f"/tmp/{id}", 'zip', f"/tmp/{id}")
+        shutil.make_archive("/tmp/{}".format(id), 'zip', "/tmp/{}".format(id))
 
     @staticmethod
     def get_filtered_list_regex(input_list, regex):

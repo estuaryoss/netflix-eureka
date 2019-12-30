@@ -36,7 +36,7 @@ class FlaskServerTestCase(unittest.TestCase):
         apps_list1 = EurekaClient("http://localhost:8080/eureka/v2").get_apps()
         self.assertEqual(len(apps_list1), 1)
         try:
-            apps_list2 = EurekaClient("http://localhost:8081/eureka/v2").get_apps()
+            EurekaClient("http://localhost:8081/eureka/v2").get_apps()
         except Exception as e:
             self.assertIsInstance(e, URLError)
         DockerUtils.start_service(self.file, "eureka-server2")
@@ -56,7 +56,7 @@ class FlaskServerTestCase(unittest.TestCase):
         apps_list2 = EurekaClient("http://localhost:8081/eureka/v2").get_apps()
         self.assertEqual(len(apps_list2), 1)
         try:
-            apps_list1 = EurekaClient("http://localhost:8080/eureka/v2").get_apps()
+            EurekaClient("http://localhost:8080/eureka/v2").get_apps()
         except Exception as e:
             self.assertIsInstance(e, URLError)
         DockerUtils.start_service(self.file, "eureka-server1")
@@ -74,7 +74,7 @@ class FlaskServerTestCase(unittest.TestCase):
         apps_list1 = EurekaClient("http://localhost:8080/eureka/v2").get_apps()
         self.assertEqual(len(apps_list1), 1)
         try:
-            apps_list2 = EurekaClient("http://localhost:8081/eureka/v2").get_apps()
+            EurekaClient("http://localhost:8081/eureka/v2").get_apps()
         except Exception as e:
             self.assertIsInstance(e, URLError)
 
