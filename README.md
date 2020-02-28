@@ -37,4 +37,4 @@ curl -i http://localhost:8080/eureka/v2
 ``` 
 
 ## About versions
-Tomcat: 9.0.26, Eureka: 1.9.15
+Tomcat: 9.0.26
