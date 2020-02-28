@@ -6,7 +6,7 @@ NetflixOSS Eureka server registry with updated tomcat and eureka version
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc6bbd138aea4291ab85cb4d4ad58af5)](https://www.codacy.com/manual/dinuta/netflixoss-eureka?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dinuta/netflixoss-eureka&amp;utm_campaign=Badge_Grade)
 
 ## Docker Hub
-[![](https://images.microbadger.com/badges/image/dinutac/netflixoss-eureka.svg)](https://microbadger.com/images/dinutac/netflixoss-eureka "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/dinutac/netflixoss-eureka.svg)](https://microbadger.com/images/dinutac/netflixoss-eureka "Get your own version badge on microbadger.com") ![](https://img.shields.io/docker/pulls/dinutac/netflixoss-eureka.svg)
+[dinutac/netflixoss-eureka](https://hub.docker.com/r/dinutac/netflixoss-eureka)  ![](https://img.shields.io/docker/pulls/dinutac/netflixoss-eureka.svg)
 
 ## Docker run
 ```shell script
