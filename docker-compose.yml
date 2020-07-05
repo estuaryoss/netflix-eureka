@@ -26,7 +26,6 @@ services:
   estuary-discovery:
     image: dinutac/estuary-discovery:latest
     hostname: estuary-discovery
-    command: python3 /home/dev/scripts/main_flask.py
     environment:
       EUREKA_SERVER: "http://eureka-server1:8080/eureka/v2,http://eureka-server2:8080/eureka/v2" #here we put 2 eureka instances. the client will load-balance
       APP_IP_PORT: estuary-discovery:8080

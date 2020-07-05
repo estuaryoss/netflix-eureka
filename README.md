@@ -10,18 +10,18 @@ NetflixOSS Eureka server registry with updated tomcat and eureka version
 
 ## Docker run
 ```shell script
-docker run -d -p 8080:8080 dinutac/netflixoss-eureka:1.9.21
+docker run -d -p 8080:8080 dinutac/netflixoss-eureka:1.9.25
 ```
 
 ## Docker run with replication
 ```shell script
 docker run -d -p 8080:8080 \   
--e JAVA_OPTS="-Deureka.serviceUrl.default=http://<eureka_replica_ip>:<eureka_replica_port>/eureka/v2/" dinutac/netflixoss-eureka:1.9.21
+-e JAVA_OPTS="-Deureka.serviceUrl.default=http://<eureka_replica_ip>:<eureka_replica_port>/eureka/v2/" dinutac/netflixoss-eureka:1.9.25
 ```
 
 Example:
 ```shell script
-docker run -d -p 8080:8080 -e JAVA_OPTS="-Deureka.serviceUrl.default=http://10.10.10.2:8080/eureka/v2/" dinutac/netflixoss-eureka:1.9.21
+docker run -d -p 8080:8080 -e JAVA_OPTS="-Deureka.serviceUrl.default=http://10.10.10.2:8080/eureka/v2/" dinutac/netflixoss-eureka:1.9.25
 ```
 
 For multiple eureka servers replication, separate them with comma.
