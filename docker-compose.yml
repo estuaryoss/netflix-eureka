@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   eureka-server1:
-    image: dinutac/netflixoss-eureka:latest
+    image: estuaryoss/netflix-eureka:latest
     environment:
       JAVA_OPTS: "-Deureka.serviceUrl.default=http://eureka-server2:8080/eureka/v2/"
     hostname: eureka-server1
@@ -14,7 +14,7 @@ services:
   # one eureka server points to the other one
 
   eureka-server2:
-    image: dinutac/netflixoss-eureka:latest
+    image: estuaryoss/netflix-eureka:latest
     hostname: eureka-server2
     environment:
       JAVA_OPTS: "-Deureka.serviceUrl.default=http://eureka-server1:8080/eureka/v2/"
@@ -24,7 +24,7 @@ services:
       - "8080"
 
   estuary-discovery:
-    image: dinutac/estuary-discovery:latest
+    image: estuaryoss/discovery:latest
     hostname: estuary-discovery
     environment:
       EUREKA_SERVER: "http://eureka-server1:8080/eureka/v2,http://eureka-server2:8080/eureka/v2" #here we put 2 eureka instances. the client will load-balance
