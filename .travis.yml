@@ -14,6 +14,7 @@ jobs:
     - language: python
       python: 3.6
       before_script:
+        - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
         - VERSION=`cat version.txt`
         - echo "build eureka version $VERSION"
         - docker build . --build-arg EUREKA_VERSION=${VERSION} -t estuaryoss/netflix-eureka:$VERSION
