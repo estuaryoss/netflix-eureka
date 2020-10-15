@@ -10,7 +10,7 @@ from tests.utils.docker_utils import DockerUtils
 class FlaskServerTestCase(unittest.TestCase):
     file = "docker-compose.yml"
     # file = "../docker-compose.yml"
-    time_to_wait_until_compose_up = 120
+    time_to_wait_until_compose_up = 60
     time_to_wait_until_discovery_up = 10
 
     def setUp(self):

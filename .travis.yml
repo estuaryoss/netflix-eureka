@@ -17,7 +17,7 @@ jobs:
         - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
         - VERSION=`cat version.txt`
         - echo "build eureka version $VERSION"
-        - docker build . --build-arg EUREKA_VERSION=${VERSION} -t dinutac/netflixoss-eureka:latest
+        - docker build . --build-arg EUREKA_VERSION=`cat version.txt` -t dinutac/netflixoss-eureka:latest
         - docker pull dinutac/estuary-discovery:latest
       script:
         - python3 -m unittest discover tests "*_test.py"
