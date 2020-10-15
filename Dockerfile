@@ -1,7 +1,7 @@
+
 FROM tomcat:9.0.26-jdk8-openjdk
 
 ARG EUREKA_VERSION
-#ENV EUREKA_VERSION 1.9.18
 
 WORKDIR $CATALINA_HOME/webapps/eureka
 
